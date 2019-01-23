@@ -39,10 +39,12 @@ export default class HomeScreen extends React.Component {
           </View>
           <Card
             borderRadius={5}
-            title='HELLO WORLD'
+            title='C.A.C Winners'
             image={require('../assets/images/team.png')} resizeMode={'contain'} >
             <Text style={{marginBottom: 10}}>
-              Ishan the amazing programmer is very coooooooooooooooooool.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Odio facilisis mauris sit amet massa. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.
+            Suspendisse in est ante in. Scelerisque purus semper eget duis at tellus at urna condimentum.
             </Text>
             <Button
               icon={<Icon name='code' color='#ffffff' />}
@@ -63,45 +65,9 @@ export default class HomeScreen extends React.Component {
               buttonStyle={{borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0}}
               title='VIEW NOW' />
           </Card>
-          <Card
-            borderRadius={5}
-            title='HELLO WORLD'
-            image={require('../assets/images/team.png')} resizeMode={'contain'} >
-            <Text style={{marginBottom: 10}}>
-              Ishan the amazing programmer is very coooooooooooooooooool.
-            </Text>
-            <Button
-              icon={<Icon name='code' color='#ffffff' />}
-              backgroundColor='#03A9F4'
-              buttonStyle={{borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-              title='VIEW NOW' />
-          </Card>
-          <Card
-            borderRadius={5}
-            title='HELLO WORLD'
-            image={require('../assets/images/team.png')} resizeMode={'contain'} >
-            <Text style={{marginBottom: 10}}>
-              Ishan the amazing programmer is very coooooooooooooooooool.
-            </Text>
-            <Button
-              icon={<Icon name='code' color='#ffffff' />}
-              backgroundColor='#03A9F4'
-              buttonStyle={{borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-              title='VIEW NOW' />
-          </Card>
-          <Card
-            borderRadius={5}
-            title='HELLO WORLD'
-            image={require('../assets/images/team.png')} resizeMode={'contain'} >
-            <Text style={{marginBottom: 10}}>
-              Ishan the amazing programmer is very coooooooooooooooooool.
-            </Text>
-            <Button
-              icon={<Icon name='code' color='#ffffff' />}
-              backgroundColor='#03A9F4'
-              buttonStyle={{borderRadius: 5, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-              title='VIEW NOW' />
-          </Card>
+        
+      
+          
           
 
         </ScrollView>
@@ -115,7 +81,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#304ffe',
+    backgroundColor: '#1B5299',
     
   },
   developmentModeText: {

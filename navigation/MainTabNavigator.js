@@ -4,8 +4,11 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import VideosScreen from '../screens/VideosScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import CoursesScreen from '../screens/CoursesScreen';
+import AboutScreen from '../screens/AboutScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -16,28 +19,54 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const VideosStack = createStackNavigator({
+  Videos: VideosScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+VideosStack.navigationOptions = {
+  tabBarLabel: 'Videos',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'logo-youtube' : 'logo-youtube'}
     />
   ),
 };
+
+const CoursesStack = createStackNavigator({
+  Courses: CoursesScreen,
+});
+
+CoursesStack.navigationOptions = {
+  tabBarLabel: 'Courses',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-code' : 'md-code'}
+    />
+  ),
+};
+
+const AboutStack = createStackNavigator({
+  About: AboutScreen,
+});
+
+AboutStack.navigationOptions = {
+  tabBarLabel: 'About Us',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-people' : 'md-people'}
+    />
+  ),
+};
+
+
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
@@ -55,6 +84,8 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  VideosStack,
+  CoursesStack,
+  AboutStack,
   SettingsStack,
 });
