@@ -39,12 +39,10 @@ export default class HomeScreen extends React.Component {
           </View>
           <Card
             borderRadius={5}
-            title='C.A.C Winners'
+            title='Congressional App Challenge 2019 Winners, FL District 27'
             image={require('../assets/images/team.png')} resizeMode={'contain'} >
             <Text style={{marginBottom: 10}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Odio facilisis mauris sit amet massa. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.
-            Suspendisse in est ante in. Scelerisque purus semper eget duis at tellus at urna condimentum.
+            The Kickstart Team recently won the Congressional App Challenge for their district, with is a nationwide competition in which teams from various congressional districts create and submit apps to be reviewed by judges and technology professionals. They will be presenting their platform to Congress in Washington DC in April of 2019. 
             </Text>
             <Button
               icon={<Icon name='code' color='#ffffff' />}

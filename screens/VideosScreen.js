@@ -7,7 +7,7 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements';
 
 export default class VideosScreen extends React.Component {
   static navigationOptions = {
-    title: 'Videos',
+    title: 'Videos and Screencasts',
   };
 
   render() {
