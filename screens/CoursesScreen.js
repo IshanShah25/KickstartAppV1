@@ -14,6 +14,14 @@ export default class CoursesScreen extends React.Component {
 
           <Card borderRadius={10} width={345} padding={1}> 
           <Text style={{alignSelf:'center', fontSize: 24,  paddingTop: 1, color: '#000000', }}>Java</Text>
+          <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/javaCourse.png')
+                  : require('../assets/images/javaCourse.png')
+              }
+              style={styles.welcomeImage}
+            />
           <Text style={{alignSelf:'center', fontSize: 12,  padding: 10, color: '#000000', alignContent: 'center', textAlign: 'center' }}>Learn how to incorporate basic operators, loops, conditional statements and more in the world's most universal and popular coding language in the Kickstart Java course.</Text>
           
                 <ScrollView
@@ -127,6 +135,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1B5299',
+  },
+  welcomeImage: {
+    width: 300,
+    height: 200,
+    resizeMode: 'contain',
+    alignSelf: 'center'
   },
   header: {
     backgroundColor : '#e5e5e5',
