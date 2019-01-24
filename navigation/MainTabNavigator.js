@@ -14,57 +14,57 @@ const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
-    />
-  ),
-};
+// HomeStack.navigationOptions = {
+//   tabBarLabel: 'Home',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-home' : 'md-home'}
+//     />
+//   ),
+// };
 
 const VideosStack = createStackNavigator({
   Videos: VideosScreen,
 });
 
-VideosStack.navigationOptions = {
-  tabBarLabel: 'Videos',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'logo-youtube' : 'logo-youtube'}
-    />
-  ),
-};
+// VideosStack.navigationOptions = {
+//   tabBarLabel: 'Videos',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'logo-youtube' : 'logo-youtube'}
+//     />
+//   ),
+// };
 
 const CoursesStack = createStackNavigator({
   Courses: CoursesScreen,
 });
 
-CoursesStack.navigationOptions = {
-  tabBarLabel: 'Courses',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-code' : 'md-code'}
-    />
-  ),
-};
+// CoursesStack.navigationOptions = {
+//   tabBarLabel: 'Courses',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-code' : 'md-code'}
+//     />
+//   ),
+// };
 
 const AboutStack = createStackNavigator({
   About: AboutScreen,
 });
 
-AboutStack.navigationOptions = {
-  tabBarLabel: 'About Us',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-people' : 'md-people'}
-    />
-  ),
-};
+// AboutStack.navigationOptions = {
+//   tabBarLabel: 'About Us',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-people' : 'md-people'}
+//     />
+//   ),
+// };
 
 
 
@@ -72,20 +72,39 @@ const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
-    />
-  ),
-};
+// SettingsStack.navigationOptions = {
+//   tabBarLabel: 'Settings',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+//     />
+//   ),
+// };
 
-export default createBottomTabNavigator({
-  HomeStack,
+// export default createBottomTabNavigator({
+//   HomeStack,
+//   VideosStack,
+//   CoursesStack,
+//   AboutStack,
+//   SettingsStack,
+// });
+
+
+// new navigator comment out if it doesnt work
+export default createMaterialBottomTabNavigator({
+  HomeStack: {
+    screen: HomeStack,
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) => {
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      },
+      tabBarColor: 'tomato',
+      shifting: true
+    }
+  },
   VideosStack,
   CoursesStack,
   AboutStack,
   SettingsStack,
-});
+})
