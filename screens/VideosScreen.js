@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, WebView, Text, TouchableHighlight, TouchableOpacity, View, Image } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import YouTube from 'react-native-youtube';
-import YouTubeVideo from './YouTubeVideo';
+import VideoModal from './VideoModal';
 import { createStackNavigator, StackNavigator } from 'react-navigation';
 import { Card, ListItem, Button} from 'react-native-elements';
 import { createMaterialTopTabNavigator } from 'react-navigation';
@@ -13,7 +13,7 @@ const apiKey = 'AIzaSyAHSMd0rymTsfIhho8S_gs-MFsy5vBCr9A'
 const channelId = 'UCTcYS4VLdovYZVV8FM7dLFw'
 const results = 30
 
-class VideosScreen extends React.Component {
+export default class VideosScreen extends React.Component {
   static navigationOptions = {
     headerStyle: {
       backgroundColor: '#fff'
@@ -23,6 +23,7 @@ class VideosScreen extends React.Component {
         
       </TouchableOpacity>
     ),
+    // do you really want this up here? it doesnt do anything
     headerRight: (
       <View style={{ flexDirection: 'row', marginRight: 20 }}>
         <TouchableOpacity style={{paddingHorizontal: 5}}>
@@ -50,6 +51,7 @@ class VideosScreen extends React.Component {
     }
   }
 
+  // promise-based fetching
   componentDidMount(){
     fetch(`https://www.googleapis.com/youtube/v3/search/?key=AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw&channelId=UCTcYS4VLdovYZVV8FM7dLFw&part=snippet,id&order=date&maxResults=30`)
     //fetch('https://www.googleapis.com/youtube/v3/search/?key=AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw&channelId=UCQzdMyuz0Lf4zo4uGcEujFw&part=snippet,id&order=date&maxResults=30')
@@ -69,7 +71,6 @@ class VideosScreen extends React.Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -77,8 +78,7 @@ class VideosScreen extends React.Component {
             {this.state.data.map((item, i) => 
            	<TouchableHighlight 
               key={item.id.videoId} 
-              onPress={() => this.props.navigation.navigate('YouTubeVideo', {youtubeId: item.id.videoId})}>
-              
+              onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
               <View style={styles.vids}>
                 <Image 
                   source={{uri: item.snippet.thumbnails.medium.url}} 
@@ -180,11 +180,15 @@ const TopBar = createMaterialTopTabNavigator({
 // this is the main stack where we export the top bar and the video redirects
 const RootStack = createStackNavigator({
   TopBar: {
-    screen: Topbar
+    screen: TopBar
   },
-  YoutubeVideo: {
-    screen: YoutubeVideo
+  MyModal: {
+    screen: VideoModal
   }
+},
+{
+  mode: 'modal',
+  headerMode: 'none'
 });
 
 const styles = StyleSheet.create({

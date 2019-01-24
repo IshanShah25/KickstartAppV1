@@ -56,6 +56,7 @@ export default class HomeScreen extends React.Component {
             image={require('../assets/images/team.png')} resizeMode={'contain'} >
             <Text style={{marginBottom: 10}}>
               Ishan the amazing programmer is very coooooooooooooooooool.
+              But Gaetan is better.
             </Text>
             <Button
               icon={<Icon name='code' color='#ffffff' />}

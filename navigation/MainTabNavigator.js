@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -93,18 +94,54 @@ const SettingsStack = createStackNavigator({
 
 // new navigator comment out if it doesnt work
 export default createMaterialBottomTabNavigator({
-  HomeStack: {
+  Home: {
     screen: HomeStack,
     navigationOptions: {
-      tabBarIcon: ({tintColor}) => {
+      tabBarIcon: ({focused}) => {
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      },
+      tabBarColor: 'red',
+      shifting: true
+    }
+  },
+  Videos: {
+    screen: VideosStack,
+    navigationOptions: {
+      tabBarIcon: ({focused}) => {
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      },
+      tabBarColor: 'green',
+      shifting: true
+    }
+  },
+  Courses: {
+    screen: CoursesStack,
+    navigationOptions: {
+      tabBarIcon: ({focused}) => {
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      },
+      tabBarColor: 'blue',
+      shifting: true
+    }
+  },
+  About: {
+    screen: AboutStack,
+    navigationOptions: {
+      tabBarIcon: ({focused}) => {
         <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
       },
       tabBarColor: 'tomato',
       shifting: true
     }
   },
-  VideosStack,
-  CoursesStack,
-  AboutStack,
-  SettingsStack,
+  Settings: {
+    screen: SettingsStack,
+    navigationOptions: {
+      tabBarIcon: ({focused}) => {
+        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      },
+      tabBarColor: 'blue',
+      shifting: true
+    }
+  },
 })

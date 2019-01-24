@@ -5,7 +5,7 @@ import YouTube from 'react-native-youtube';
 
 // this screen displays the video
 
-export default class YouTubeVideo extends React.Component{
+export default class VideoModal extends React.Component {
     static navigationOptions = {
         headerTitle: 'YouTube',
         headerStyle: {
