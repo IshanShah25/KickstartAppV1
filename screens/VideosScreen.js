@@ -53,7 +53,7 @@ export default class VideosScreen extends React.Component {
 
   // promise-based fetching
   componentDidMount(){
-    fetch(`https://www.googleapis.com/youtube/v3/search/?key=AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw&channelId=UCTcYS4VLdovYZVV8FM7dLFw&part=snippet,id&order=date&maxResults=30`)
+    fetch(`https://www.googleapis.com/youtube/v3/search/?key=AIzaSyAHSMd0rymTsfIhho8S_gs-MFsy5vBCr9A&channelId=UCTcYS4VLdovYZVV8FM7dLFw&part=snippet,id&order=date&maxResults=30`)
     //fetch('https://www.googleapis.com/youtube/v3/search/?key=AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw&channelId=UCQzdMyuz0Lf4zo4uGcEujFw&part=snippet,id&order=date&maxResults=30')
     .then(res => res.json())
     .then(res => {

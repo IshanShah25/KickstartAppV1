@@ -2,9 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import VideosScreen from '../screens/VideosScreen';
@@ -102,7 +100,7 @@ export default createMaterialBottomTabNavigator({
       tabBarIcon: ({focused}) => {
         <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-home" : "md-home"} />
       },
-      tabBarColor: 'red',
+      tabBarColor: '#651fff',
       shifting: true
     }
   },
@@ -112,7 +110,7 @@ export default createMaterialBottomTabNavigator({
       tabBarIcon: ({focused}) => {
         <Icon name="view-grid" />
       },
-      tabBarColor: 'green',
+      tabBarColor: '#e91e63',
       shifting: true
     }
   },
@@ -122,7 +120,7 @@ export default createMaterialBottomTabNavigator({
       tabBarIcon: ({focused}) => {
         <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-code" : "md-code"} />
       },
-      tabBarColor: 'blue',
+      tabBarColor: '#3d5afe',
       shifting: true
     }
   },
@@ -142,7 +140,7 @@ export default createMaterialBottomTabNavigator({
       tabBarIcon: ({focused}) => {
         <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-options" : "md-options"} />
       },
-      tabBarColor: 'blue',
+      tabBarColor: '#00e676',
       shifting: true
     }
   },
