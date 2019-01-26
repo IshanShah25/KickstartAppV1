@@ -5,7 +5,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-// import TabBarIcon from '../components/TabBarIcon';
+import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import VideosScreen from '../screens/VideosScreen';
 import SettingsScreen from '../screens/SettingsScreen';
