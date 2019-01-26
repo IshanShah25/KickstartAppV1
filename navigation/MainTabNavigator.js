@@ -3,7 +3,9 @@ import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
-import TabBarIcon from '../components/TabBarIcon';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+
+// import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import VideosScreen from '../screens/VideosScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -98,7 +100,7 @@ export default createMaterialBottomTabNavigator({
     screen: HomeStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-home" : "md-home"} />
       },
       tabBarColor: 'red',
       shifting: true
@@ -108,7 +110,7 @@ export default createMaterialBottomTabNavigator({
     screen: VideosStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <Icon name="view-grid" />
       },
       tabBarColor: 'green',
       shifting: true
@@ -118,7 +120,7 @@ export default createMaterialBottomTabNavigator({
     screen: CoursesStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-code" : "md-code"} />
       },
       tabBarColor: 'blue',
       shifting: true
@@ -128,7 +130,7 @@ export default createMaterialBottomTabNavigator({
     screen: AboutStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-people" : "md-people"} />
       },
       tabBarColor: 'tomato',
       shifting: true
@@ -138,7 +140,7 @@ export default createMaterialBottomTabNavigator({
     screen: SettingsStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-options" : "md-options"} />
       },
       tabBarColor: 'blue',
       shifting: true

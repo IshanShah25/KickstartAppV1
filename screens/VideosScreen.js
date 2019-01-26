@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, WebView, Text, TouchableHighlight, TouchableOpacity, View, Image } from 'react-native';
+import { ScrollView, StyleSheet, WebView, Text, TouchableHighlight, TouchableOpacity, View, Image, FlatList } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import YouTube from 'react-native-youtube';
 import VideoModal from './VideoModal';
@@ -70,33 +70,76 @@ export default class VideosScreen extends React.Component {
     })
   }
 
+  _renderItem = ({item}) => (
+    <TouchableHighlight 
+      onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
+      <View style={styles.vids}>
+        <Image 
+          source={{uri: item.snippet.thumbnails.medium.url}} 
+          style={{width: 320, height: 180}}/>
+        <View style={styles.vidItems}>
+          
+          <Text style={styles.vidText}>{item.snippet.title}</Text>
+          <Icon name='more-vert' size={20} color='#555'/> 
+        </View>
+      </View>
+    </TouchableHighlight>
+  )
+
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView>
-          <View style={styles.body}>
-            {this.state.data.map((item, i) => 
-           	<TouchableHighlight 
-              key={item.id.videoId} 
-              onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
-              <View style={styles.vids}>
-                <Image 
-                  source={{uri: item.snippet.thumbnails.medium.url}} 
-                  style={{width: 320, height: 180}}/>
-                <View style={styles.vidItems}>
-                  
-                  <Text style={styles.vidText}>{item.snippet.title}</Text>
-                  <Icon name='more-vert' size={20} color='#555'/> 
-                </View>
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.body}>
+          {this.state.data.map((item, i) => 
+          <TouchableHighlight 
+            key={item.id.videoId} 
+            onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
+            <View style={styles.vids}>
+              <Image 
+                source={{uri: item.snippet.thumbnails.medium.url}} 
+                style={{width: 320, height: 180}}/>
+              <View style={styles.vidItems}>
+                
+                <Text style={styles.vidText}>{item.snippet.title}</Text>
+                <Icon name='more-vert' size={20} color='#555'/> 
               </View>
-            </TouchableHighlight>
-            )}
-          </View>
-        </ScrollView>
-	    </View>
+            </View>
+          </TouchableHighlight>
+          )}
+        </View>
+      </ScrollView>
+    </View>
     )
   }
 }
+
+/*
+
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.body}>
+          {this.state.data.map((item, i) => 
+          <TouchableHighlight 
+            key={item.id.videoId} 
+            onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
+            <View style={styles.vids}>
+              <Image 
+                source={{uri: item.snippet.thumbnails.medium.url}} 
+                style={{width: 320, height: 180}}/>
+              <View style={styles.vidItems}>
+                
+                <Text style={styles.vidText}>{item.snippet.title}</Text>
+                <Icon name='more-vert' size={20} color='#555'/> 
+              </View>
+            </View>
+          </TouchableHighlight>
+          )}
+        </View>
+      </ScrollView>
+    </View>
+
+*/
 
 
 class ScreencastsScreen extends React.Component {
