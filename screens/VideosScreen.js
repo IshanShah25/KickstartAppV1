@@ -59,6 +59,7 @@ export default class VideosScreen extends React.Component {
     .then(res => {
       const videoId = []
       res.items.forEach(item => {
+        console.log(item);
         videoId.push(item)
       })
       this.setState({
@@ -93,7 +94,7 @@ export default class VideosScreen extends React.Component {
         <View style={styles.body}>
           {this.state.data.map((item, i) => 
           <TouchableHighlight 
-            key={item.id.videoId} 
+            key={i}
             onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
             <View style={styles.vids}>
               <Image 
@@ -102,7 +103,6 @@ export default class VideosScreen extends React.Component {
               <View style={styles.vidItems}>
                 
                 <Text style={styles.vidText}>{item.snippet.title}</Text>
-                <Icon name='more-vert' size={20} color='#555'/> 
               </View>
             </View>
           </TouchableHighlight>
@@ -114,15 +114,14 @@ export default class VideosScreen extends React.Component {
   }
 }
 
-/*
-
-    <View style={styles.container}>
+/* 
       <ScrollView>
         <View style={styles.body}>
           {this.state.data.map((item, i) => 
           <TouchableHighlight 
             key={item.id.videoId} 
-            onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
+            // onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}
+            onPress={() => this.props.navigation.navigate('MyModal')}>
             <View style={styles.vids}>
               <Image 
                 source={{uri: item.snippet.thumbnails.medium.url}} 
@@ -137,9 +136,7 @@ export default class VideosScreen extends React.Component {
           )}
         </View>
       </ScrollView>
-    </View>
-
-*/
+      */
 
 
 class ScreencastsScreen extends React.Component {

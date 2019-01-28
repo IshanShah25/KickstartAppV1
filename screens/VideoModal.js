@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import YouTube from 'react-native-youtube';
 
@@ -7,20 +7,15 @@ import YouTube from 'react-native-youtube';
 
 export default class VideoModal extends React.Component {
     static navigationOptions = {
-        headerTitle: 'YouTube',
-        headerStyle: {
-            backgroundColor: '#000'
-        }, 
-        headerTitleStyle: {
-            color: '#fff'
-        }
+        headerTitle: 'YouTube'
     }
 
     render() {
+
         return (
           <View style={styles.container}>
             <YouTube
-                videoId={this.props.navigation.state.params.youtubeId}   
+                videoId={this.props.navigation.state.params.youtubeId} 
                 play={true}             
                 fullscreen={true}       
                 loop={false}            
@@ -31,6 +26,7 @@ export default class VideoModal extends React.Component {
                 onError={e => this.setState({ error: e.error })}
                 style={{ alignSelf: 'stretch', height: 300 }}
             />
+            <Text>{JSON.stringify(youtubeID)}</Text>
           </View>
         )
     }

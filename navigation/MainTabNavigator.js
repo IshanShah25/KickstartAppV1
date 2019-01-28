@@ -2,8 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import TabBarIcon from '../components/TabBarIcon';
+import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import VideosScreen from '../screens/VideosScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -98,7 +97,7 @@ export default createMaterialBottomTabNavigator({
     screen: HomeStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-home" : "md-home"} />
+        <Ionicons name="ios-add" size={24} color="white"/>
       },
       tabBarColor: '#651fff',
       shifting: true
@@ -108,7 +107,7 @@ export default createMaterialBottomTabNavigator({
     screen: VideosStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <Icon name="view-grid" />
+        <Ionicons name="ios-add" size={24} color="white"/>
       },
       tabBarColor: '#e91e63',
       shifting: true
@@ -118,7 +117,7 @@ export default createMaterialBottomTabNavigator({
     screen: CoursesStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-code" : "md-code"} />
+        <Ionicons name="ios-add" size={24} color="white"/>
       },
       tabBarColor: '#3d5afe',
       shifting: true
@@ -128,7 +127,7 @@ export default createMaterialBottomTabNavigator({
     screen: AboutStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-people" : "md-people"} />
+        <Ionicons name="ios-add" size={24} color="white"/>
       },
       tabBarColor: 'tomato',
       shifting: true
@@ -138,7 +137,7 @@ export default createMaterialBottomTabNavigator({
     screen: SettingsStack,
     navigationOptions: {
       tabBarIcon: ({focused}) => {
-        <Icon focused={focused} name={Platform.OS === 'ios' ? "ios-options" : "md-options"} />
+        <Ionicons name="ios-add" size={24} color="white"/>
       },
       tabBarColor: '#00e676',
       shifting: true
