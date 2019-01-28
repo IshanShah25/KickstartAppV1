@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
-import VideosScreen from '../screens/VideosScreen';
+import VideoScreen from '../screens/VideosScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CoursesScreen from '../screens/CoursesScreen';
 import AboutScreen from '../screens/AboutScreen';
@@ -25,7 +25,7 @@ const HomeStack = createStackNavigator({
 // };
 
 const VideosStack = createStackNavigator({
-  Videos: VideosScreen,
+  Videos: VideoScreen,
 });
 
 // VideosStack.navigationOptions = {

@@ -11,11 +11,13 @@ export default class VideoModal extends React.Component {
     }
 
     render() {
+        const { params } = this.props.navigation.state;
+        const youtubeID = params.youtubeID;
 
         return (
           <View style={styles.container}>
             <YouTube
-                videoId={this.props.navigation.state.params.youtubeId} 
+                videoId={youtubeID} 
                 play={true}             
                 fullscreen={true}       
                 loop={false}            

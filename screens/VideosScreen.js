@@ -5,7 +5,7 @@ import YouTube from 'react-native-youtube';
 import VideoModal from './VideoModal';
 import { createStackNavigator, StackNavigator } from 'react-navigation';
 import { Card, ListItem, Button} from 'react-native-elements';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 
@@ -13,33 +13,11 @@ const apiKey = 'AIzaSyAHSMd0rymTsfIhho8S_gs-MFsy5vBCr9A'
 const channelId = 'UCTcYS4VLdovYZVV8FM7dLFw'
 const results = 30
 
-export default class VideosScreen extends React.Component {
+class VideosClass extends React.Component {
   static navigationOptions = {
     headerStyle: {
       backgroundColor: '#fff'
-    },
-    headerLeft: (
-      <TouchableOpacity>
-        
-      </TouchableOpacity>
-    ),
-    // do you really want this up here? it doesnt do anything
-    headerRight: (
-      <View style={{ flexDirection: 'row', marginRight: 20 }}>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='cast-connected' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='videocam' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='search' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='account-circle' size={25} color={'#555'}/>
-        </TouchableOpacity>
-      </View>
-    )
+    }
   }
 
 
@@ -95,7 +73,7 @@ export default class VideosScreen extends React.Component {
           {this.state.data.map((item, i) => 
           <TouchableHighlight 
             key={i}
-            onPress={() => this.props.navigation.navigate('MyModal', {youtubeId: item.id.videoId})}>
+            onPress={() => this.props.navigation.navigate('MyModal', {youtubeID: item.id.videoId})}>
             <View style={styles.vids}>
               <Image 
                 source={{uri: item.snippet.thumbnails.medium.url}} 
@@ -165,15 +143,9 @@ class ScreencastsScreen extends React.Component {
 }
 
 const TopBar = createMaterialTopTabNavigator({
-  Videos:{screen:VideosScreen,
-    navigationOptions:{
-      title: 'Videos',
-      tabBarLabel:'Youtube Videos',
-
-    }
-  },
-  Screencasts:{screen:ScreencastsScreen,
-    navigationOptions:{
+  Screencasts: {
+    screen: ScreencastsScreen,
+    navigationOptions: {
       title: 'Screencasts',
       tabBarLabel:'Kickstart Screencasts',
     }
@@ -189,47 +161,32 @@ const TopBar = createMaterialTopTabNavigator({
   }
 })
 
-// top bar navigator (the blue one)
-// export default createMaterialTopTabNavigator({
-//   Videos:{screen:VideosScreen,
-//     navigationOptions:{
-//       title: 'Videos',
-//       tabBarLabel:'Youtube Videos',
-
-//     }
-//   },
-//   Screencasts:{screen:ScreencastsScreen,
-//     navigationOptions:{
-//       title: 'Screencasts',
-//       tabBarLabel:'Kickstart Screencasts',
-//     }
-//   }
-// }, {
-//   tabBarOptions: {
-//     labelStyle: {
-//       fontSize: 12,
-//     },
-//     style: {
-//       //backgroundColor: 'blue',
-//     },
-//   }
-// })
-
 
 
 // this is the main stack where we export the top bar and the video redirects
-const RootStack = createStackNavigator({
-  TopBar: {
-    screen: TopBar
+const RootStack = createStackNavigator(
+  {
+    Video: {
+      screen: VideosClass
+    },
+    MyModal: {
+      screen: VideoModal
+    }
   },
-  MyModal: {
-    screen: VideoModal
+  {
+    initialRouteName: 'Video',
+    mode: 'modal',
+    headerMode: 'none'
   }
-},
-{
-  mode: 'modal',
-  headerMode: 'none'
-});
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class VideoScreen extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
